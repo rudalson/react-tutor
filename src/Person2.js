@@ -1,8 +1,16 @@
 import React from "react";
 
 
-const person2 = () => {  //ES6
-    return <h1>두번째 컴포넌트 입니다</h1>
-}
+// const person2 = (props) => (
+//     <div>
+//         <h1>이름은 {props.name}, 나이는 {props.age}</h1>
+//     </div>
+// )
+
+const person2 = ({name, age}) => (
+    <div>
+        <h1>이름은 {name}, 나이는 {age}</h1>
+    </div>
+)
 
 export default person2;

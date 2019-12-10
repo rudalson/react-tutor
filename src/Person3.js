@@ -1,8 +1,22 @@
 import React from "react";
 
+class Person3 extends React.Component {
 
-const Person3 = () => {  //ES6
-    return <h1>세번째 컴포넌트 입니다</h1>
+    // render() {
+    //     return (
+    //         <div>
+    //             <h1>이름은 : {this.props.name} 나이는 : {this.props.age}</h1>
+    //         </div>
+    //     )
+    // }
+    render() {
+        const {name, age} = this.props;
+        return (
+            <div>
+                <h1>이름은 : {name} 나이는 : {age}</h1>
+            </div>
+        )
+    }
 }
 
 export {Person3};
