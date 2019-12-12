@@ -5,10 +5,10 @@ import {Person3} from "./Person3"
 
 class App extends React.Component {
     state = {
-        person:[
-            {name:"홍길동", age:26},
-            {name:"고길동", age:46},
-            {name:"머스크", age:36},
+        person: [
+            {name: "홍길동", age: 26},
+            {name: "고길동", age: 46},
+            {name: "머스크", age: 36},
         ]
     }
 
@@ -24,11 +24,16 @@ class App extends React.Component {
 
     render() {
         const {person} = this.state;
+        const myfun = () => {
+            console.log("test")
+        };
         return (
             <div className="App">
-                <Person2 name={person[0].name} age={person[0].age}/>
-                <Person2 name={person[1].name} age={person[1].age}/>
-                <Person3 name={"이순신"} age={35}/>
+                <Person2
+                    name={"강감찬"}
+                    age={45}
+                    st={this.state}
+                />
             </div>
         );
     }
