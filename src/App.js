@@ -1,4 +1,6 @@
 import React from 'react';
+import Button from './Button';
+import Display from './Display';
 
 class App extends React.Component {
     constructor(props) {
@@ -9,29 +11,18 @@ class App extends React.Component {
     }
 
     onClickhandler = (payload) => {
-        console.log(this)
-        this.setState({number: this.state.number + payload})
+        this.setState({number: this.state.number + payload});
     }
 
     render() {
         return (
             <div className="App">
                 <Display value={this.state.number}/>
-                <Button onClick={() => this.onClickhandler(1)}>증가버튼</Button>
-                <Button onClick={() => this.onClickhandler(-1)}>증가버튼</Button>
+                <Button clickHandler={() => this.onClickhandler(1)}>증가버튼</Button>
+                <Button clickHandler={() => this.onClickhandler(-1)}>감소버튼</Button>
             </div>
         );
     }
 }
-
-const Button = ({children, clickHandler}) =>
-    <div>
-        <button onClick={clickHandler}>{children}</button>
-    </div>
-
-const Display = ({value}) =>
-    <div>
-        <h1>{value}</h1>
-    </div>
 
 export default App;
