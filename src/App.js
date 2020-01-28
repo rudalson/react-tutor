@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css'
 import Button from './Button';
 import Display from './Display';
 
@@ -18,7 +19,7 @@ class App extends React.Component {
         return (
             <div className="App">
                 <Display value={this.state.number}/>
-                <Button clickHandler={() => this.onClickhandler(1)}>증가버튼</Button>
+                <Button className="Btn" clickHandler={() => this.onClickhandler(1)}>증가버튼</Button>
                 <Button clickHandler={() => this.onClickhandler(-1)}>감소버튼</Button>
             </div>
         );
