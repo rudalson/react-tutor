@@ -6,10 +6,10 @@ class App extends React.Component {
         this.state = {
             number: 49
         }
-        this.onClickhandler = this.onClickhandler.bind(this)
     }
 
-    onClickhandler(payload) {
+    onClickhandler = (payload) => {
+        console.log(this)
         this.setState({number: this.state.number + payload})
     }
 
