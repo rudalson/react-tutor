@@ -5,6 +5,7 @@ const person2 = (props) => (
     <div>
         <h1>이름은 {props.name}, 나이는 {props.age}</h1>
         {props.children}
+        {props.myfun()}
         {console.log(props.st)}
     </div>
 )

@@ -32,6 +32,7 @@ class App extends React.Component {
                 <Person2
                     name={"강감찬"}
                     age={45}
+                    myfun={myfun}
                     st={this.state}
                 />
             </div>

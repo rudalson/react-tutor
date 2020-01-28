@@ -68,4 +68,10 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
 
-h1. React 기초 공부
+# React 기초 공부
+* [React 기초](https://www.youtube.com/playlist?list=PLRB_0OYQAHMPu7EsP51ksMd489CrEfICT) 참조
+
+## Project 생성 
+`shell
+$ create-react-app react-tutor
+`
