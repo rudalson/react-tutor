@@ -6,6 +6,7 @@ class App extends React.Component {
         this.state = {
             number: 49
         }
+        this.onClickhandler = this.onClickhandler.bind(this)
     }
 
     onClickhandler() {
