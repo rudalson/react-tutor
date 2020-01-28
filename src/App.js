@@ -7,11 +7,15 @@ class App extends React.Component {
             number: 49
         }
         this.onClickhandler = this.onClickhandler.bind(this)
+        this.onClickhandlerMinus = this.onClickhandlerMinus.bind(this)
     }
 
     onClickhandler() {
-        console.log(this);
-        this.state.number++;
+        this.setState({number: this.state.number + 1})
+    }
+
+    onClickhandlerMinus() {
+        this.setState({number: this.state.number - 1})
     }
 
     render() {
@@ -22,7 +26,7 @@ class App extends React.Component {
                     <button onClick={this.onClickhandler}>증가버튼</button>
                 </div>
                 <div>
-                    <button>감소버튼</button>
+                    <button onClick={this.onClickhandlerMinus}>감소버튼</button>
                 </div>
             </div>
         );
