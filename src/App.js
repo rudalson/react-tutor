@@ -17,16 +17,17 @@ class App extends React.Component {
         return (
             <div className="App">
                 <Display value={this.state.number}/>
-                <div>
-                    <button onClick={() => this.onClickhandler(1)}>증가버튼</button>
-                </div>
-                <div>
-                    <button onClick={() => this.onClickhandler(-1)}>감소버튼</button>
-                </div>
+                <Button onClick={() => this.onClickhandler(1)}>증가버튼</Button>
+                <Button onClick={() => this.onClickhandler(-1)}>증가버튼</Button>
             </div>
         );
     }
 }
+
+const Button = ({children, clickHandler}) =>
+    <div>
+        <button onClick={clickHandler}>{children}</button>
+    </div>
 
 const Display = ({value}) =>
     <div>
