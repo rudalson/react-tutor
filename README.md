@@ -75,3 +75,8 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 `shell
 $ create-react-app react-tutor
 `
+
+## Bulma 사용
+`shell script
+yarn add -E react-bulma-components
+`

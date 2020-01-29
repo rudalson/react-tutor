@@ -1,8 +1,9 @@
 import React from 'react';
+import { Button } from 'react-bulma-components';
 
-const Button = ({className, children, clickHandler}) =>
+const Btn = ({color, children, clickHandler}) =>
     <div>
-        <button className={className} onClick={clickHandler}>{children}</button>
+        <Button fullwidth={true} color={color} onClick={clickHandler}>{children}</Button>
     </div>
 
-export default Button;
+export default Btn;
