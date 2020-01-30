@@ -10,6 +10,7 @@ class App extends React.Component {
     };
 
     onClickHandler = (e) => {
+        e.preventDefault();
         const task = {todo: this.state.task};
         this.setState({
             tasks: [task],
@@ -21,7 +22,7 @@ class App extends React.Component {
     onChangeHandler = (e) => {
         this.setState({
             task: e.target.value
-        })
+        });
     };
 
     render() {
@@ -37,8 +38,10 @@ class App extends React.Component {
         return (
             <div className="App">
                 <div>
-                    <input value={this.state.task} onChange={this.onChangeHandler}></input>
-                    <button onClick={this.onClickHandler}>저장</button>
+                    <form>
+                        <input value={this.state.task} onChange={this.onChangeHandler}/>
+                        <button onClick={this.onClickHandler}>저장</button>
+                    </form>
                 </div>
                 <div>
                     {taskDisplay}
