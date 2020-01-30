@@ -25,6 +25,15 @@ class App extends React.Component {
     };
 
     render() {
+        const taskDisplay = this.state.tasks.map((task, i) => {
+            return (
+                <div key={i}>
+                    <p>{task.todo}</p>
+                    <button>delete</button>
+                </div>
+            )
+        });
+
         return (
             <div className="App">
                 <div>
@@ -32,8 +41,7 @@ class App extends React.Component {
                     <button onClick={this.onClickHandler}>저장</button>
                 </div>
                 <div>
-                    <p>{this.state.tasks[0]['todo']}</p>
-                    <button>delete</button>
+                    {taskDisplay}
                 </div>
             </div>
         );
