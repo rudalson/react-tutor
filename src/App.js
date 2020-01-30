@@ -12,8 +12,9 @@ class App extends React.Component {
     onClickHandler = (e) => {
         e.preventDefault();
         const task = {todo: this.state.task};
+        const tasks = [...this.state.tasks, task];
         this.setState({
-            tasks: [task],
+            tasks,
             task: ''
         });
         console.log(this.state.tasks);
