@@ -1,4 +1,6 @@
 import React from 'react';
+import TaskAdd from "./TaskAdd";
+import TaskDisplay from "./TaskDisplay";
 
 class App extends React.Component {
     state = {
@@ -50,27 +52,5 @@ class App extends React.Component {
     }
 }
 
-const TaskDisplay = ({tasks, deleteHandler}) => {
-    const taskDisplay = tasks.map((task, i) => {
-        return (
-            <div key={i}>
-                <p>{task.todo}</p>
-                <button onClick={() => deleteHandler(i)}>delete</button>
-            </div>
-        )
-    });
-    return taskDisplay;
-};
-
-const TaskAdd = ({value, changeHandler, clickHandler}) => {
-    return (
-        <div>
-            <form>
-                <input value={value} onChange={changeHandler}/>
-                <button onClick={clickHandler}>저장</button>
-            </form>
-        </div>
-    )
-};
 
 export default App;
