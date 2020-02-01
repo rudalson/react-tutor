@@ -19,7 +19,6 @@ class App extends React.Component {
             tasks,
             task: ''
         });
-        console.log(this.state.tasks);
     };
 
     onChangeHandler = (e) => {
@@ -35,7 +34,7 @@ class App extends React.Component {
 
     render() {
         return (
-            <div className="App">
+            <div className="container">
                 <TaskAdd
                     value={this.state.task}
                     changeHandler={this.onChangeHandler}
