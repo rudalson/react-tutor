@@ -26,30 +26,51 @@ class App extends React.Component {
         });
     };
 
-    render() {
-        const taskDisplay = this.state.tasks.map((task, i) => {
-            return (
-                <div key={i}>
-                    <p>{task.todo}</p>
-                    <button>delete</button>
-                </div>
-            )
-        });
+    deleteHandler = (idx) => {
+        const tasks = this.state.tasks.filter((task, i) => i !== idx);
+        this.setState({tasks});
+    };
 
+    render() {
         return (
             <div className="App">
+                <TaskAdd
+                    value={this.state.task}
+                    changeHandler={this.onChangeHandler}
+                    clickHandler={this.onClickHandler}
+                />
                 <div>
-                    <form>
-                        <input value={this.state.task} onChange={this.onChangeHandler}/>
-                        <button onClick={this.onClickHandler}>저장</button>
-                    </form>
-                </div>
-                <div>
-                    {taskDisplay}
+                    <TaskDisplay
+                        tasks={this.state.tasks}
+                        deleteHandler={this.deleteHandler}
+                    />
                 </div>
             </div>
         );
     }
 }
+
+const TaskDisplay = ({tasks, deleteHandler}) => {
+    const taskDisplay = tasks.map((task, i) => {
+        return (
+            <div key={i}>
+                <p>{task.todo}</p>
+                <button onClick={() => deleteHandler(i)}>delete</button>
+            </div>
+        )
+    });
+    return taskDisplay;
+};
+
+const TaskAdd = ({value, changeHandler, clickHandler}) => {
+    return (
+        <div>
+            <form>
+                <input value={value} onChange={changeHandler}/>
+                <button onClick={clickHandler}>저장</button>
+            </form>
+        </div>
+    )
+};
 
 export default App;
