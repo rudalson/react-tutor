@@ -13,7 +13,7 @@ class App extends React.Component {
         this.state = {
             tasks: [],
             task: '',
-            login:true
+            login: true
         };
         if (firebase.auth.currentUser === null) {
             this.state.login = false;
@@ -65,17 +65,22 @@ class App extends React.Component {
     render() {
         return (
             <div className="container">
-                <TaskAdd
-                    value={this.state.task}
-                    changeHandler={this.onChangeHandler}
-                    clickHandler={this.onClickHandler}
-                />
-                <div>
-                    <TaskDisplay
-                        tasks={this.state.tasks}
-                        deleteHandler={this.deleteHandler}
-                    />
-                </div>
+                {this.state.login ?
+                    <div>
+                        <TaskAdd
+                            value={this.state.task}
+                            changeHandler={this.onChangeHandler}
+                            clickHandler={this.onClickHandler}
+                        />
+                        <div>
+                            <TaskDisplay
+                                tasks={this.state.tasks}
+                                deleteHandler={this.deleteHandler}
+                            />
+                        </div>
+                    </div>
+                    : null
+                }
             </div>
         );
     }
