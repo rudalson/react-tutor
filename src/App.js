@@ -23,12 +23,14 @@ class App extends React.Component {
 
     onClickHandler = (e) => {
         e.preventDefault();
-        const task = {todo: this.state.task};
-        const tasks = [...this.state.tasks, task];
-        this.setState({
-            tasks,
-            task: ''
-        });
+        firestore.collection('tasks').add({todo: this.state.task})
+            .then(r => {
+                const tasks = [...this.state.tasks, {todo: this.state.task, id: r.id}];
+                this.setState({
+                    tasks,
+                    task: ''
+                });
+            });
     };
 
     onChangeHandler = (e) => {
