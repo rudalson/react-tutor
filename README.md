@@ -1,5 +1,42 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# React 기초 공부
+* [React 기초](https://www.youtube.com/playlist?list=PLRB_0OYQAHMPu7EsP51ksMd489CrEfICT) 참조
+
+## Project 생성 
+```shell
+$ create-react-app react-tutor
+```
+
+## Bulma 사용
+```shell script
+$ yarn add -E react-bulma-components
+```
+
+## firebase 사용
+```shell script
+$ npm install firebase
+```
+
+### firebase hosting
+```shell script
+$ firebase deploy --only hosting
+```
+
+## build 후 간단히 띄우기
+`yarn`인 경우
+```shell script
+$ yarn global add serve
+$ serve -s build
+```
+
+`npm`인 경우
+```shell script
+$ npm install -g serve
+$ serve -s build
+```
+
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -37,46 +74,4 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-
-
-# React 기초 공부
-* [React 기초](https://www.youtube.com/playlist?list=PLRB_0OYQAHMPu7EsP51ksMd489CrEfICT) 참조
-
-## Project 생성 
-`shell
-$ create-react-app react-tutor
-`
-
-## Bulma 사용
-`shell script
-yarn add -E react-bulma-components
-`
