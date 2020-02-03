@@ -37,9 +37,12 @@ class App extends React.Component {
         });
     };
 
-    deleteHandler = (idx) => {
-        const tasks = this.state.tasks.filter((task, i) => i !== idx);
-        this.setState({tasks});
+    deleteHandler = (id) => {
+        firestore.collection('tasks').doc(id).delete()
+            .then(() => {
+                const tasks = this.state.tasks.filter((task) => task.id !== id);
+                this.setState({tasks});
+            })
     };
 
     render() {
