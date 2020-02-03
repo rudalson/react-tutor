@@ -63,6 +63,14 @@ class App extends React.Component {
             })
     };
 
+    checkLogin = () => {
+        if (firebase.auth.currentUser != null) {
+            this.setState({
+                login: true
+            })
+        }
+    };
+
     render() {
         return (
             <div className="container">
@@ -81,7 +89,7 @@ class App extends React.Component {
                         </div>
                     </div>
                     :
-                    <Login/>
+                    <Login login={this.checkLogin}/>
                 }
             </div>
         );
