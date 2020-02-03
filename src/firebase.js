@@ -1,11 +1,21 @@
-import firebase from 'firebase/app'
+import app from 'firebase/app'
 import 'firebase/firestore';
+import 'firebase/auth';
+import 'firebase/storage';
 
 import firebaseConfig from './config/firebaseConfig'
 
-firebase.initializeApp(firebaseConfig);
+class Firebase {
+    constructor() {
+        app.initializeApp(firebaseConfig);
+        this.firestore = app.firestore();
+        this.auth = app.auth();
+    }
 
-const firestore = new firebase.firestore();
+    doSignInWithEmailAndPassword(email, password) {
+        return this.auth.signInWithEmailAndPassword(email, password);
+    }
+}
 
-export {firestore}
+export default new Firebase();
 

@@ -2,27 +2,41 @@ import React from 'react';
 import TaskAdd from "./TaskAdd";
 import TaskDisplay from "./TaskDisplay";
 
-import {firestore} from "./firebase";
+import firebase from "./firebase";
+
+// firebase auth rule
+// allow read, write:if request.auth.uid != null;
 
 class App extends React.Component {
-    state = {
-        tasks: [],
-        task: ''
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            tasks: [],
+            task: '',
+            login:true
+        };
+        if (firebase.auth.currentUser === null) {
+            this.state.login = false;
+        }
+    }
 
     componentDidMount() {
         const tasks = [...this.state.tasks];
+
+        const firestore = firebase.firestore;
         firestore.collection('tasks').get()
             .then(docs => {
                 docs.forEach(doc => {
                     tasks.push({todo: doc.data().todo, id: doc.id});
                 });
                 this.setState({tasks})
-            });
+            })
+            .catch(e => console.log(e));
     }
 
     onClickHandler = (e) => {
         e.preventDefault();
+        const firestore = firebase.firestore;
         firestore.collection('tasks').add({todo: this.state.task})
             .then(r => {
                 const tasks = [...this.state.tasks, {todo: this.state.task, id: r.id}];
@@ -40,6 +54,7 @@ class App extends React.Component {
     };
 
     deleteHandler = (id) => {
+        const firestore = firebase.firestore;
         firestore.collection('tasks').doc(id).delete()
             .then(() => {
                 const tasks = this.state.tasks.filter((task) => task.id !== id);
