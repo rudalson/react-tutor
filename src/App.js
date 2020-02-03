@@ -6,17 +6,18 @@ import {firestore} from "./firebase";
 
 class App extends React.Component {
     state = {
-        tasks: [
-            {todo: '할일 1'},
-            {todo: '할일 2'},
-        ],
+        tasks: [],
         task: ''
     };
 
     componentDidMount() {
+        const tasks = [...this.state.tasks];
         firestore.collection('tasks').get()
             .then(docs => {
-                console.log("성공")
+                docs.forEach(doc => {
+                    tasks.push({todo: doc.data().todo, id: doc.id});
+                });
+                this.setState({tasks})
             });
     }
 
