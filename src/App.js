@@ -3,6 +3,7 @@ import TaskAdd from "./TaskAdd";
 import TaskDisplay from "./TaskDisplay";
 
 import firebase from "./firebase";
+import Login from "./Login";
 
 // firebase auth rule
 // allow read, write:if request.auth.uid != null;
@@ -79,7 +80,8 @@ class App extends React.Component {
                             />
                         </div>
                     </div>
-                    : null
+                    :
+                    <Login/>
                 }
             </div>
         );
