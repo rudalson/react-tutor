@@ -2,6 +2,8 @@ import React from 'react';
 import TaskAdd from "./TaskAdd";
 import TaskDisplay from "./TaskDisplay";
 
+import {firestore} from "./firebase";
+
 class App extends React.Component {
     state = {
         tasks: [
@@ -10,6 +12,13 @@ class App extends React.Component {
         ],
         task: ''
     };
+
+    componentDidMount() {
+        firestore.collection('tasks').get()
+            .then(docs => {
+                console.log("성공")
+            });
+    }
 
     onClickHandler = (e) => {
         e.preventDefault();
